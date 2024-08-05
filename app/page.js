@@ -150,10 +150,11 @@ export default function Home() {
                 <TextField placeholder=""variant="outlined" fullWidth value={itemName} 
                            onChange={(e) => {setItemName(e.target.value)}} label="Item"></TextField>
                 <TextField type="number" variant="outlined" fullWidth value={itemQuantity} 
-                           onChange={(e) => {setQuantityName(e.target.value)}} label="Quantity"></TextField>
+                           onChange={(e) => {setItemQuantity(e.target.value)}} label="Quantity"></TextField>
                 <Button variant="outlined" onClick={()=> {
                   addItem(itemName,itemQuantity)
                   setItemName('')
+                  setItemQuantity(0)
                   handleClose()
                 }} >Add</Button>
               </Stack>
