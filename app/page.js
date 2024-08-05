@@ -77,14 +77,14 @@ export default function Home() {
     
     if(docSnap.exists()){
       const {quantity} = docSnap.data()
-      await setDoc(docRef, {quantity: (quantity + 1)})
+      await setDoc(docRef, {quantity: (Number(quantity) + 1)})
     }
     else{
 
      if(amount <=0){
       amount = 1;
      }
-      await setDoc(docRef, {quantity: amount});
+      await setDoc(docRef, {quantity: Number(amount)});
       
     }
     await updateInventory()
@@ -95,8 +95,8 @@ export default function Home() {
     const docSnap = await getDoc(docRef)
 
     if(docSnap.exists()){
-      const {quantity} = docSnap.data()
-      if(quantity ===  1){
+      const {quantity } = docSnap.data()
+      if(quantity <=  1){
         await deleteDoc(docRef)
       }
       else{
@@ -172,7 +172,7 @@ export default function Home() {
           <Stack width="800px" height="300px" spacing={2} overflow="auto">
             {
               filteredInventory.map(({name,quantity}) => (
-                <Box className="each-item" key="name" width="100%" minheight="150px" display="flex" 
+                <Box className="each-item" key={name} width="100%" minheight="150px" display="flex" 
                      alingItems="center" justifyContent="space-between" 
                       padding={5}>
                       <Typography variant="h3" color="#333" textAlign="center">
