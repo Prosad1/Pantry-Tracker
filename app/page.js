@@ -6,7 +6,7 @@ import { firestore } from '@/firebase'
 import { Box, Typography, Modal, Stack, TextField, Button } from '@mui/material'
 import { query, collection, getDocs, deleteDoc, doc, getDoc, setDoc } from 'firebase/firestore'
 
-export default function Home() {
+export default function Homez() {
   const [inventory, setInventory] = useState([]);
   const [filteredInventory, setFilteredInventory] = useState([])
   const [open, setOpen] = useState(false);
